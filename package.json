@@ -1,5 +1,10 @@
 {
   "name": "n2s-stack",
+  "author": {
+    "name": "Amine Mesbah",
+    "email": "hello@mesbah.dev"
+  },
+  "url": "https://mesbah.dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
