@@ -22,10 +22,10 @@ export default async function Header() {
 					{!user && (
 						<div className="flex space-x-2">
 							<Button asChild size="sm" variant="outline">
-								<Link href="/signin/password_email">{'Login'}</Link>
+								<Link href="/signin/password_signin">{'Login'}</Link>
 							</Button>
 							<Button asChild size="sm">
-								<Link href="/signin/singup">{'Sign Up'}</Link>
+								<Link href="/signin/signup">{'Sign Up'}</Link>
 							</Button>
 						</div>
 					)}
