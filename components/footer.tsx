@@ -18,7 +18,7 @@ export default function Footer() {
 					<div className="text-balance text-sm leading-loose text-muted-foreground">
 						{'The source code is available on'}{' '}
 						<a
-							href="https://github.com/mesbahdev/n2s-stack"
+							href="https://github.com/mesbahdev1/n2s-stack"
 							target="_blank"
 							rel="noreferrer"
 							className="font-medium underline underline-offset-4"

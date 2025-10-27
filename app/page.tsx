@@ -18,7 +18,7 @@ export default function Home() {
 					</p>
 					<div className="flex w-full items-center justify-center gap-2 pt-2 **:data-[slot=button]:shadow-none">
 						<Button asChild>
-							<Link href="https://github.com/mesbahdev/n2s-stack">
+							<Link href="https://github.com/mesbahdev1/n2s-stack">
 								View on GitHub
 							</Link>
 						</Button>
