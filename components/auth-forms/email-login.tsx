@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
@@ -22,9 +21,6 @@ export default function EmailSignIn({
 	redirectMethod,
 	disablebutton,
 }: EmailSignInProps) {
-	//const router = redirectMethod === 'client' ? useRouter() : null;
-	const router = useRouter();
-
 	const { mutate: submit, isPending } = useMutation({
 		mutationFn: signInWithEmail,
 		onError: () => {
