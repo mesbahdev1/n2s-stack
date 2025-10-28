@@ -5,8 +5,8 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
+import { Field, FieldGroup, FieldLabel, FieldSet } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
 import { signInWithPassword } from '@/utils/auth-helpers/server';
 
@@ -43,58 +43,46 @@ export default function PasswordSignIn({
 
 	return (
 		<>
-			<form className="mt-6 space-y-4" onSubmit={(e) => handleSubmit(e)}>
-				<div>
-					<Label
-						htmlFor="email"
-						className="text-sm font-medium text-foreground dark:text-foreground"
-					>
-						{'Email'}
-					</Label>
-					<Input
-						autoCapitalize="none"
-						autoComplete="email"
-						className="mt-2"
-						disabled={isPending}
-						id="email"
-						name="email"
-						placeholder="name@example.com"
-						required
-						type="email"
-					/>
-				</div>
-				<div>
-					<div className="flex items-center justify-between">
-						<Label
-							htmlFor="password"
-							className="text-sm font-medium text-foreground dark:text-foreground"
-						>
-							{'Password'}
-						</Label>
-						<Link
-							className="text-sm font-medium text-muted-foreground hover:text-primary/90 hover:dark:text-primary/90"
-							href="/signin/forgot_password"
-						>
-							{'Forgot Password?'}
-						</Link>
-					</div>
-					<Input
-						autoComplete="password"
-						className="mt-2"
-						id="password"
-						name="password"
-						placeholder="**************"
-						required
-						type="password"
-					/>
-				</div>
-				<Button
-					className="mt-4 w-full py-2 font-medium"
-					disabled={isPending}
-					type="submit"
-				>
-					{'Login'}
-				</Button>
+			<form className="mt-6" onSubmit={(e) => handleSubmit(e)}>
+				<FieldGroup>
+					<FieldSet>
+						<Field>
+							<FieldLabel>{'Email'}</FieldLabel>
+							<Input
+								autoCapitalize="none"
+								autoComplete="email"
+								disabled={isPending}
+								id="email"
+								name="email"
+								placeholder="name@example.com"
+								required
+								type="email"
+							/>
+						</Field>
+						<Field>
+							<div className="flex items-center justify-between">
+								<FieldLabel>{'Password'}</FieldLabel>
+								<Link
+									className="text-sm font-medium text-muted-foreground hover:text-primary/90 hover:dark:text-primary/90"
+									href="/signin/forgot_password"
+								>
+									{'Forgot Password?'}
+								</Link>
+							</div>
+							<Input
+								autoComplete="password"
+								id="password"
+								name="password"
+								placeholder="**************"
+								required
+								type="password"
+							/>
+						</Field>
+					</FieldSet>
+					<Button disabled={isPending} type="submit">
+						{'Login'}
+					</Button>
+				</FieldGroup>
 			</form>
 
 			{allowEmail && (

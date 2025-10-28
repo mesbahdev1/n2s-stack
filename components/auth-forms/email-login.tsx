@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
+import { Field, FieldGroup, FieldLabel, FieldSet } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
@@ -41,37 +42,27 @@ export default function EmailSignIn({
 	};
 
 	return (
-		<form
-			className="mt-6 space-y-4"
-			noValidate={true}
-			onSubmit={(e) => handleSubmit(e)}
-		>
-			<div>
-				<Label
-					htmlFor="email"
-					className="text-sm font-medium text-foreground dark:text-foreground"
-				>
-					{'Email'}
-				</Label>
-				<Input
-					autoCapitalize="none"
-					autoComplete="email"
-					className="mt-2"
-					disabled={isPending}
-					id="email"
-					name="email"
-					placeholder="name@example.com"
-					required
-					type="email"
-				/>
-			</div>
-			<Button
-				className="mt-4 w-full py-2 font-medium"
-				disabled={isPending}
-				type="submit"
-			>
-				{'Send me the magic link'}
-			</Button>
+		<form className="mt-6" noValidate={true} onSubmit={(e) => handleSubmit(e)}>
+			<FieldGroup>
+				<FieldSet>
+					<Field>
+						<FieldLabel>{'Email'}</FieldLabel>
+						<Input
+							autoCapitalize="none"
+							autoComplete="email"
+							disabled={isPending}
+							id="email"
+							name="email"
+							placeholder="name@example.com"
+							required
+							type="email"
+						/>
+					</Field>
+				</FieldSet>
+				<Button disabled={isPending} type="submit">
+					{'Send me the magic link'}
+				</Button>
+			</FieldGroup>
 		</form>
 	);
 }

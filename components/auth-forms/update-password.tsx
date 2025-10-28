@@ -5,6 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
+import { Field, FieldGroup, FieldLabel, FieldSet } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
@@ -44,56 +45,36 @@ export default function UpdatePassword({
 	};
 
 	return (
-		<form
-			className="mt-6 space-y-4"
-			noValidate={true}
-			onSubmit={(e) => handleSubmit(e)}
-		>
-			<div>
-				<div className="flex items-center justify-between">
-					<Label
-						htmlFor="password"
-						className="text-sm font-medium text-foreground dark:text-foreground"
-					>
-						{'New Password'}
-					</Label>
-				</div>
-				<Input
-					autoComplete="password"
-					className="mt-2"
-					id="password"
-					name="password"
-					placeholder="**************"
-					required
-					type="password"
-				/>
-			</div>
-			<div>
-				<div className="flex items-center justify-between">
-					<Label
-						htmlFor="passwordConfirm"
-						className="text-sm font-medium text-foreground dark:text-foreground"
-					>
-						{'New Password'}
-					</Label>
-				</div>
-				<Input
-					autoComplete="password"
-					className="mt-2"
-					id="passwordConfirm"
-					name="passwordConfirm"
-					placeholder="**************"
-					required
-					type="password"
-				/>
-			</div>
-			<Button
-				className="mt-4 w-full py-2 font-medium"
-				disabled={isPending}
-				type="submit"
-			>
-				{'Update Password'}
-			</Button>
+		<form className="mt-6" noValidate={true} onSubmit={(e) => handleSubmit(e)}>
+			<FieldGroup>
+				<FieldSet>
+					<Field>
+						<FieldLabel>{'New Password'}</FieldLabel>
+						<Input
+							autoComplete="password"
+							id="password"
+							name="password"
+							placeholder="**************"
+							required
+							type="password"
+						/>
+					</Field>
+					<Field>
+						<FieldLabel>{'Confirm New Password'}</FieldLabel>
+						<Input
+							autoComplete="password"
+							id="passwordConfirm"
+							name="passwordConfirm"
+							placeholder="**************"
+							required
+							type="password"
+						/>
+					</Field>
+				</FieldSet>
+				<Button disabled={isPending} type="submit">
+					{'Update Password'}
+				</Button>
+			</FieldGroup>
 		</form>
 	);
 }

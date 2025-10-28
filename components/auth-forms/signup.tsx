@@ -6,8 +6,8 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
+import { Field, FieldGroup, FieldLabel, FieldSet } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
 import { signUp } from '@/utils/auth-helpers/server';
 
@@ -47,72 +47,54 @@ export default function SignUp({ allowEmail, redirectMethod }: SignUpProps) {
 	return (
 		<div>
 			<form
-				className="mt-6 space-y-4"
+				className="mt-6"
 				//noValidate={true}
 				onSubmit={(e) => handleSubmit(e)}
 			>
-				<div>
-					<Label
-						htmlFor="name"
-						className="text-sm font-medium text-foreground dark:text-foreground"
-					>
-						{'Name'}
-					</Label>
-					<Input
-						autoCapitalize="none"
-						autoComplete="name"
-						className="mt-2"
-						disabled={isPending}
-						id="name"
-						name="name"
-						placeholder="Jon Doe"
-						required
-						type="text"
-					/>
-				</div>
-				<div>
-					<Label
-						htmlFor="email"
-						className="text-sm font-medium text-foreground dark:text-foreground"
-					>
-						{'Email'}
-					</Label>
-					<Input
-						autoCapitalize="none"
-						autoComplete="email"
-						className="mt-2"
-						disabled={isPending}
-						id="email"
-						name="email"
-						placeholder="name@example.com"
-						required
-						type="email"
-					/>
-				</div>
-				<div>
-					<Label
-						htmlFor="password"
-						className="text-sm font-medium text-foreground dark:text-foreground"
-					>
-						{'Password'}
-					</Label>
-					<Input
-						autoComplete="password"
-						className="mt-2"
-						id="password"
-						name="password"
-						placeholder="**************"
-						required
-						type="password"
-					/>
-				</div>
-				<Button
-					className="mt-4 w-full py-2 font-medium"
-					disabled={isPending}
-					type="submit"
-				>
-					{'Sign up'}
-				</Button>
+				<FieldGroup>
+					<FieldSet>
+						<Field>
+							<FieldLabel>{'Name'}</FieldLabel>
+							<Input
+								autoCapitalize="none"
+								autoComplete="name"
+								disabled={isPending}
+								id="name"
+								name="name"
+								placeholder="Jon Doe"
+								required
+								type="text"
+							/>
+						</Field>
+						<Field>
+							<FieldLabel>{'Email'}</FieldLabel>
+							<Input
+								autoCapitalize="none"
+								autoComplete="email"
+								disabled={isPending}
+								id="email"
+								name="email"
+								placeholder="name@example.com"
+								required
+								type="email"
+							/>
+						</Field>
+						<Field>
+							<FieldLabel>{'Password'}</FieldLabel>
+							<Input
+								autoComplete="password"
+								id="password"
+								name="password"
+								placeholder="**************"
+								required
+								type="password"
+							/>
+						</Field>
+					</FieldSet>
+					<Button disabled={isPending} type="submit">
+						{'Sign up'}
+					</Button>
+				</FieldGroup>
 			</form>
 		</div>
 	);
