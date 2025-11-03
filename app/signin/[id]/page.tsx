@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server';
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 import { Separator } from '@/components/ui/separator';
 
@@ -82,20 +83,20 @@ export default async function SignIn(props: {
 				{viewProp === 'signup' && (
 					<p className="text-muted-foreground text-sm">
 						{'Already have an account?'}{' '}
-						<a href="/signin" className="text-foreground hover:underline">
+						<Link href="/signin" className="text-foreground hover:underline">
 							{'Login now'}
-						</a>
+						</Link>
 					</p>
 				)}
 				{viewProp === 'password_signin' && (
 					<p className="text-muted-foreground text-sm">
 						{'First time here?'}{' '}
-						<a
+						<Link
 							href="/signin/signup"
 							className="text-foreground hover:underline"
 						>
 							{'Sign up now'}
-						</a>
+						</Link>
 					</p>
 				)}
 				{viewProp === 'email_signin' && (
@@ -113,7 +114,6 @@ export default async function SignIn(props: {
 			{viewProp === 'password_signin' && (
 				<PasswordSignIn
 					allowEmail={allowEmail}
-					allowOauth={allowOauth}
 					redirectMethod={redirectMethod}
 				/>
 			)}

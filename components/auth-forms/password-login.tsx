@@ -13,13 +13,11 @@ import { signInWithPassword } from '@/utils/auth-helpers/server';
 // Define prop type with allowEmail boolean
 interface PasswordSignInProps {
 	allowEmail: boolean;
-	allowOauth: boolean;
 	redirectMethod: string;
 }
 
 export default function PasswordSignIn({
 	allowEmail,
-	allowOauth,
 	redirectMethod,
 }: PasswordSignInProps) {
 	const { mutate: submit, isPending } = useMutation({
